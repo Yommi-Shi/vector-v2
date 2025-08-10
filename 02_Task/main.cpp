@@ -12,7 +12,12 @@ int main() {
     float sum = 0;
 
     for (int i = 0; i < items.size(); i++) {
+        if (items[i] > (prices.size() - 1) || items[i] < 0) {
+            std::cout << "One of the elements is beyond the size of the array\n";
+            continue;
+        }
         sum += prices[items[i]];
+
     }
 
     std::cout << "The total cost will be equal to " << sum << std::endl;

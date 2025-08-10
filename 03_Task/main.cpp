@@ -7,23 +7,28 @@ int main() {
 
     std::vector<int> db(20);
 
-    int n, index = 0;
-    while (n != -2) {
+    int num = 0;
+    int index = 0;
+
+    while (num != -2) {
         std::cout << "input number:";
-        std::cin >> n;
-
-        if (n == -1) {
-            for (int i : db) {
-                std::cout << i << " ";
+        std::cin >> num;
+        if (num == -1) {
+            std::cout << "output:";
+            for (int i = index; i < db.size(); i++) {
+                std::cout << db[i] << " ";
             }
-            std::cout << std::endl;
+            for (int i = 0; i < index; i++) {
+                std::cout << db[i] << " ";
+            }
+            std::cout << "\n";
         } else {
-            for (int i = 1; i < db.size(); i++) {
-                db[i - 1] = db[i];
+            db[index] = num;
+            index++;
+            if (index == 20) {
+                index = 0;
             }
-            db[db.size() - 1] = n;
         }
-
     }
 
 }
